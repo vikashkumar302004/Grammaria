@@ -23,7 +23,7 @@ export const SidebarActions: React.FC<SidebarActionsProps> = ({ onOpenDailyChall
     <>
       <nav className="map-actions fixed left-2 top-[5.8rem] z-20 flex flex-col sm:left-4" aria-label="Map actions">
         {actions.map(({ label, icon: Icon, notice, tone }, index) => (
-          <button key={label} type="button" onClick={callbacks[index]} className={`map-action map-action--${tone}`}>
+          <button key={label} type="button" onClick={callbacks[index]} className={`map-action map-action--${tone}`} aria-label={label}>
             <span className="map-action__seal"><Icon /></span>
             <span className="map-action__label">{label}</span>
             {notice && <span className="map-action__notice">{notice}</span>}
