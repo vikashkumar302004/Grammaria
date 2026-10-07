@@ -5,6 +5,7 @@ import { Territory } from '@/types/game';
 import { X, Swords, BookOpen, ShieldCheck, Lock, Award, CheckCircle2, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SpecialTerritoryView } from './SpecialTerritoryView';
+import { CentraliaView } from './CentraliaView';
 
 interface TerritoryModalProps {
   territory: Territory | null;
@@ -20,6 +21,10 @@ export const TerritoryModal: React.FC<TerritoryModalProps> = ({
   const [activeTab, setActiveTab] = useState<'command' | 'study'>('command');
 
   if (!territory) return null;
+
+  if (territory.id === 'centralia') {
+    return <CentraliaView key={territory.id} territory={territory} onClose={onClose} />;
+  }
 
   if (territory.id === 'artikel' || territory.id === 'temporalia') {
     return (
